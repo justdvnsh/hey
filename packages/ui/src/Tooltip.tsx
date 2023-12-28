@@ -3,10 +3,17 @@ import type { FC, ReactNode } from 'react';
 import * as RadixTooltip from '@radix-ui/react-tooltip';
 
 interface TooltipProps {
+  arrow?: boolean;
+  asPopover?: boolean;
   children: ReactNode;
   className?: string;
   content: ReactNode;
+  /**
+   * Make the popup content interactive i.e clickable or selectable
+   */
+  interactive?: boolean;
   placement?: 'bottom' | 'left' | 'right' | 'top';
+  theme?: string;
   withDelay?: boolean;
 }
 

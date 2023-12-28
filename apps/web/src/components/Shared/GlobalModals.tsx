@@ -15,6 +15,7 @@ import Login from './Login';
 import WrongNetwork from './Login/WrongNetwork';
 import Invites from './Modal/Invites';
 import ReportProfile from './Modal/ReportProfile';
+import SendMessageRequest from './Modal/SendMessageRequest';
 import SwitchProfiles from './SwitchProfiles';
 
 const GlobalModals: FC = () => {
@@ -24,6 +25,9 @@ const GlobalModals: FC = () => {
   );
   const reportingPublication = useGlobalModalStateStore(
     (state) => state.reportingPublication
+  );
+  const messagingProfile = useGlobalModalStateStore(
+    (state) => state.messagingProfile
   );
   const setShowPublicationReportModal = useGlobalModalStateStore(
     (state) => state.setShowPublicationReportModal
@@ -69,6 +73,12 @@ const GlobalModals: FC = () => {
   );
   const setShowDiscardModal = useGlobalModalStateStore(
     (state) => state.setShowDiscardModal
+  );
+  const showSendMessageRequestModal = useGlobalModalStateStore(
+    (state) => state.showMessageRequestModal
+  );
+  const setShowMessageRequestModal = useGlobalModalStateStore(
+    (state) => state.setShowMessageRequestModal
   );
 
   // Publication store
@@ -163,6 +173,16 @@ const GlobalModals: FC = () => {
         title="Create post"
       >
         <NewPublication />
+      </Modal>
+      <Modal
+        onClose={() => {
+          setShowMessageRequestModal(false, null);
+        }}
+        show={showSendMessageRequestModal}
+        size="md"
+        title="Send Message Request"
+      >
+        <SendMessageRequest />
       </Modal>
       <Modal
         icon={<TicketIcon className="text-brand-500 size-5" />}

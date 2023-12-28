@@ -1,3 +1,5 @@
+import { CONSTANTS } from '@pushprotocol/restapi';
+
 import packageJson from '../../package.json';
 import LensEndpoint from './lens-endpoints';
 import getEnvConfig from './utils/getEnvConfig';
@@ -31,6 +33,9 @@ export const BRAND_COLOR = '#FB3A5D';
 // Git
 export const GIT_COMMIT_SHA =
   process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(0, 7);
+
+//Push
+export const PUSH_ENV = IS_MAINNET ? CONSTANTS.ENV.PROD : CONSTANTS.ENV.DEV;
 
 // Misc
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
